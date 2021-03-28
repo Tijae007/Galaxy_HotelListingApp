@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Panagea - Premium site template for travel agencies, hotels and restaurant listing.">
+    <meta name="author" content="Ansonika">
+    <title>
+        {% block title%}
+
+        {% endblock%}
+    </title>
+    
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{% static 'frontend/img/galaxy.jfif' %}" type="image/x-icon">
+    <!-- <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'frontend/img/apple-touch-icon-57x57-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'frontend/img/apple-touch-icon-72x72-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'frontend/img/apple-touch-icon-114x114-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'frontend/img/apple-touch-icon-144x144-precomposed.png' %}"> -->
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="{% static 'frontend/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'frontend/css/vendors.css' %}" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{% static 'frontend/css/custom.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+		
+	<div id="page">
+		
+	<header class="header menu_fixed">
+		<!-- <div id="preloader"><div data-loader="circle-side"></div></div>/Page Preload -->
+		<div id="logo">
+			<a href="{%url 'index' %}">
+				<img src="{% static 'frontend/img/galaxy.jfif' %}" width="150" height="50" data-retina="true" alt="" class="logo_normal"> 
+				<img src="{% static 'frontend/img/galaxy.jfif' %}" width="150" height="50" data-retina="true" alt="" class="logo_sticky"> 
+				<!-- <strong><h1 style="color: crimson;">GALAXY</h1></strong> -->
+			</a>
+		</div>
+		 <!-- <ul id="top_menu">
+			<li><span>Login<a href="#sign-in-dialog" id="sign-in" class="login" title="Log In">Sign In</a></span</li>
+		</ul>  -->
+		<!-- /top_menu 
+		<a href="#menu" class="btn_mobile">
+			<div class="hamburger hamburger--spin" id="hamburger">
+				<div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
+			</div>
+		</a> -->
+		<nav id="menu" class="main-menu">
+			<ul>
+				<li><span><a href="{%url 'index' %}">Home</a></span></li>
+				<li><span><a href="{%url 'frontend:about' %}">About</a></span> </li>
+				<li><span><a href="{%url 'frontend:hotel' %}">Hotels</a></span>
+				<li><span><a href="{%url 'frontend:blog' %}">Blog </a></span></li>
+				<!-- <li><span><a href="{%url 'frontend:help' %}">Help Section</a></span></li>
+				<li><span><a href="{%url 'frontend:faq' %}">Faq Section</a></span></li> --> 
+				<li><span><a href="{%url 'backend:login_view' %}">User Login</a></span></li>
+				<!-- <li><span><a href="{%url 'backend:login_userview' %}"> Admin Login</a></span></li> -->
+				<li><span><a href="{%url 'backend:register_form' %}">Register</a></span></li>
+				<li><span><a href="{%url 'frontend:contact' %}">Contacts</a></span></li>	
+			</ul>
+		</nav>
+	</header>
+	<!-- /header -->
+	
+    {% block content%}
+      
+    {% endblock%}
+	
+
+	<!--/footer-->
+	</div>
+	<!-- page -->
+	
+	
+	<div id="toTop"></div><!-- Back to top button -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="{% static 'frontend/js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'frontend/js/common_scripts.js' %}"></script>
+    <script src="{% static 'frontend/js/main.js' %}"></script>
+	<script src="{% static 'frontend/assets/validate.js' %}"></script>
+	
+	<!-- DATEPICKER  -->
+	<script>
+	$(function() {
+	  'use strict';
+	  $('input[name="dates"]').daterangepicker({
+		  autoUpdateInput: false,
+		  locale: {
+			  cancelLabel: 'Clear'
+		  }
+	  });
+	  $('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
+		  $(this).val(picker.startDate.format('MM-DD-YY') + ' > ' + picker.endDate.format('MM-DD-YY'));
+	  });
+	  $('input[name="dates"]').on('cancel.daterangepicker', function(ev, picker) {
+		  $(this).val('');
+	  });
+	});
+	</script>
+	
+	<!-- INPUT QUANTITY  -->
+	<script src="{% static 'frontend/js/input_qty.js' %}"></script>
+	
+</body>
+</html>
